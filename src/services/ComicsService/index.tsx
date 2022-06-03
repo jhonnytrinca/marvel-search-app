@@ -11,5 +11,9 @@ const getAll = (url: string, params?: paramsProps) => {
   return api.get(url, { params });
 };
 
+const getCharacters = (url: string) => {
+  return api.get(url);
+};
+
 // eslint-disable-next-line import/no-anonymous-default-export
-export default { getAll };
+export default { getAll, getCharacters };

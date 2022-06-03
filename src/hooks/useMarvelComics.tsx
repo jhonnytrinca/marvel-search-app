@@ -8,6 +8,8 @@ const useMarvelComics = () => {
   const [value, setValue] = useState<string>('');
   const [searchTitle, setSearchTitle] = useState<string>();
   const [filters, setFilters] = useState({});
+  const [openModal, setOpenModal] = useState(false);
+  const [comicDetails, setComicDetails] = useState({});
 
   useEffect(() => {
     !!searchTitle
@@ -29,6 +31,11 @@ const useMarvelComics = () => {
     setSearchTitle('');
   };
 
+  const handleDetails = (comic: any) => {
+    setComicDetails(comic);
+    setOpenModal(true);
+  };
+
   const debounced = useDebounce((value: string) => setSearchTitle(value), 1000);
 
   const { data, isValidating } = useSWR(getKeys, ComicsService.getAll, {
@@ -44,7 +51,11 @@ const useMarvelComics = () => {
     searchTitle,
     setSearchTitle,
     handleChange,
-    handleClean
+    handleClean,
+    openModal,
+    setOpenModal,
+    comicDetails,
+    handleDetails
   };
 };
 

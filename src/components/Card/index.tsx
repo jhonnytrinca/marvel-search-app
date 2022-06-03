@@ -2,7 +2,7 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { Button } from '../Button';
 import { Checkbox } from '../Checkbox';
 
-export const Card = ({ comic }: any) => {
+export const Card = ({ comic, handleDetails }: any) => {
   return (
     <>
       <div className='border-2 rounded-xl w-64 h-fit flex flex-col gap-3 relative hover:opacity-[0.9] hover:transition-opacity'>
@@ -24,7 +24,7 @@ export const Card = ({ comic }: any) => {
             name='checkbox'
           />
           <Button
-            onClick={() => {}}
+            onClick={handleDetails}
             className='flex gap-1 items-center underline text-gray-600'
           >
             <AiOutlineSearch />

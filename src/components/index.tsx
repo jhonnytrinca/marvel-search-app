@@ -5,3 +5,4 @@ export { Input } from './Input';
 export { Toast } from './Toast';
 export { Card } from './Card';
 export { Footer } from './Footer';
+export { DetailsModal } from './DetailsModal';
