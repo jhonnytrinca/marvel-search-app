@@ -1,10 +1,10 @@
-import { Header } from './components';
+import { Toast } from './components';
 import Home from './pages';
 
 function App() {
   return (
     <div>
-      <Header />
+      <Toast />
       <Home />
     </div>
   );
