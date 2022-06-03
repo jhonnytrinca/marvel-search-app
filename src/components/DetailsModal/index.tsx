@@ -1,5 +1,6 @@
 import useSWR from 'swr';
 import useComicDetails from '../../hooks/useComicDetails';
+import useOnKeyDown from '../../hooks/useOnKeyDown';
 import ComicsService from '../../services/ComicsService';
 import { Button } from '../Button';
 
@@ -10,6 +11,7 @@ export const DetailsModal = ({ comic, closeModal }: any) => {
     ComicsService.getCharacters
   );
   const characters = data?.data?.data.results;
+  useOnKeyDown('Escape', closeModal);
 
   return (
     <div className='absolute z-10 flex justify-center items-center'>
