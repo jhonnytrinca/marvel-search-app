@@ -14,6 +14,10 @@
   .topics {
     @apply font-semibold beforeBar
   }
+
+  .dark-mode {
+    @apply right-0 border-none bg-gray-600 bg-[url('./assets/toggle.svg')]
+  }
 }
 
 body {
