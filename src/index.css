@@ -6,6 +6,14 @@
   input, [type='text'],  [type='checkbox'], [type='email'] {
     @apply focus:ring-offset-0 focus:ring-transparent focus:outline-none border-none
   }
+
+  .beforeBar {
+    @apply before:content-[''] before:inline-block before:w-1 before:mr-1 before:h-4 before:bg-red-600
+  }
+
+  .topics {
+    @apply font-semibold beforeBar
+  }
 }
 
 body {
@@ -20,4 +28,20 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  max-height: 8px;
+  display: inline;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #e8e9f1;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(69, 69, 233);
+  border-radius: 6px;
 }
