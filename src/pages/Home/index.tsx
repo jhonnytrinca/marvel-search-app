@@ -53,7 +53,7 @@ const Home = () => {
             <Header />
             <div className='bg-gray-100 pb-28 dark:bg-gray-700'>
               <div className='flex justify-center items-center w-full py-8 relative'>
-                <div className='w-3/6'>
+                <div className='w-3/6 font-montserrat'>
                   <Input
                     placeholder='Busque pelo nome do quadrinho desejado'
                     onChange={(e) => {

@@ -75,8 +75,8 @@ export const DetailsModal = ({ comic, closeModal }: detailsProps) => {
   useOnKeyDown('Escape', closeModal);
 
   return (
-    <div className='fixed top-0 left-0 w-full h-screen z-10 flex justify-center items-center bg-black/40'>
-      <div className='w-9/12 h-10/12 rounded-xl bg-white dark:bg-gray-600 relative px-8 py-5'>
+    <div className='fixed top-0 left-0 w-full h-screen z-10 flex justify-center items-center bg-black/40 '>
+      <div className='w-10/12 h-10/12 rounded-xl bg-white dark:bg-gray-600 relative px-8 py-5'>
         <div className='absolute -top-4 -left-20 rounded-lg shadow-xl w-[16rem] h-[23rem]'>
           <img
             src={`${comic.thumbnail?.path}/detail.${comic?.thumbnail?.extension}`}
@@ -87,7 +87,7 @@ export const DetailsModal = ({ comic, closeModal }: detailsProps) => {
         <div className='w-full flex flex-col '>
           <div className='flex flex-col w-10/12 self-end z-[2]'>
             <div className='h-[14rem] min-h-fit'>
-              <h1 className='font-semibold text-3xl text-center uppercase dark:text-white'>
+              <h1 className='font-semibold text-3xl text-center uppercase dark:text-white font-kdam'>
                 {comic?.title}
               </h1>
               <div className='max-h-[11rem] overflow-auto py-3 text-sm dark:text-white'>
@@ -95,7 +95,7 @@ export const DetailsModal = ({ comic, closeModal }: detailsProps) => {
                   dangerouslySetInnerHTML={{
                     __html: comic?.description || 'Descrição não informada'
                   }}
-                  className='beforeBar italic'
+                  className='beforeBar italic font-montserrat'
                 />
               </div>
               <p className='flex items-center text-red-600 font-semibold py-2 text-sm dark:text-gray-900'>
@@ -105,7 +105,7 @@ export const DetailsModal = ({ comic, closeModal }: detailsProps) => {
                     target='_blank'
                     rel='noreferrer'
                     href={handleDetails()}
-                    className='underline pl-2'
+                    className='underline pl-2 font-montserrat'
                   >
                     Clique aqui
                   </a>{' '}
@@ -113,7 +113,7 @@ export const DetailsModal = ({ comic, closeModal }: detailsProps) => {
                 </span>
               </p>
             </div>
-            <div className=' mt-5 leading-8 max-h-[26rem] overflow-auto dark:text-white'>
+            <div className=' mt-7 leading-8 max-h-[26rem] overflow-auto dark:text-white font-montserrat'>
               <div>
                 <span className='topics'>Série a que faz parte: </span>
                 <span>{comic?.series?.name || 'Não disponível'}</span>
@@ -156,7 +156,7 @@ export const DetailsModal = ({ comic, closeModal }: detailsProps) => {
             ) : (
               <>
                 {characters?.length > 0 && (
-                  <div className='mt-2'>
+                  <div className='mt-2 font-poppins'>
                     <span className='topics text-xl'>
                       Personagens participantes:
                     </span>
@@ -170,7 +170,7 @@ export const DetailsModal = ({ comic, closeModal }: detailsProps) => {
                               className='rounded-full'
                             />
                           </div>
-                          <span className='uppercase font-bold text-center text-sm	'>
+                          <span className='uppercase font-bold text-center text-sm	font-montserrat'>
                             {character.name}
                           </span>
                         </div>

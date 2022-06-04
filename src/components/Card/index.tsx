@@ -35,7 +35,7 @@ export const Card = ({ comic, handleDetails, onChange, formik }: cardProps) => {
           className='rounded-t-xl'
         />
 
-        <span className='text-xl font-semibold text-center truncate px-2 uppercase dark:text-white'>
+        <span className='text-xl font-semibold text-center truncate px-2 uppercase dark:text-white font-kdam'>
           {comic?.title || ''}
         </span>
 
@@ -50,7 +50,7 @@ export const Card = ({ comic, handleDetails, onChange, formik }: cardProps) => {
           />
           <Button
             onClick={handleDetails}
-            className='flex gap-1 items-center underline text-gray-600 dark:text-white'
+            className='flex gap-1 items-center underline text-gray-600 dark:text-white font-poppins'
           >
             <AiOutlineSearch />
             Detalhes

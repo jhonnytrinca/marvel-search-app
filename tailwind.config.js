@@ -13,6 +13,11 @@ module.exports = {
       },
       animation: {
         shake: 'shake 0.2s ease-in-out 2'
+      },
+      fontFamily: {
+        kdam: ['Kdam Thmor Pro', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif']
       }
     }
   },

@@ -29,7 +29,7 @@ export const Checkbox = ({
   };
 
   return (
-    <label className='flex items-center gap-1 relative py-1 px-3 w-fit cursor-pointer'>
+    <label className='flex items-center gap-1 relative py-1 px-2 w-fit cursor-pointer font-poppins'>
       <input
         type='checkbox'
         checked={checked}
