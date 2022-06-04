@@ -1,4 +1,11 @@
-import { Card, DetailsModal, Footer, Header, Input } from '../../components';
+import {
+  Card,
+  DetailsModal,
+  Footer,
+  Header,
+  Input,
+  Loading
+} from '../../components';
 import { AiOutlineSearch } from 'react-icons/ai';
 import useMarvelComics from '../../hooks/useMarvelComics';
 import { FieldArray, Form, Formik } from 'formik';
@@ -61,7 +68,7 @@ const Home = () => {
 
               <div className='flex p-8 justify-center overflow-auto'>
                 {isValidating ? (
-                  'Loading Component'
+                  <Loading />
                 ) : (
                   <FieldArray
                     name='selectedOptions'

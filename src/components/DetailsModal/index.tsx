@@ -5,7 +5,6 @@ import ComicsService from '../../services/ComicsService';
 import { Button } from '../Button';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { BiMessageAltDetail } from 'react-icons/bi';
-import { ReactElement, JSXElementConstructor, ReactFragment } from 'react';
 
 /** Componente Checkbox
  *
@@ -153,7 +152,7 @@ export const DetailsModal = ({ comic, closeModal }: detailsProps) => {
           </div>
           <div className='min-h-[9rem] pt-4 dark:text-white'>
             {isValidating ? (
-              'Loading component'
+              ''
             ) : (
               <>
                 {characters?.length > 0 && (
