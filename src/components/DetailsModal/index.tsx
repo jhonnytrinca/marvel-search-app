@@ -21,7 +21,7 @@ export const DetailsModal = ({ comic, closeModal }: any) => {
 
   return (
     <div className='fixed top-0 left-0 w-full h-screen z-10 flex justify-center items-center bg-black/40'>
-      <div className='w-9/12 h-10/12 rounded-xl bg-white relative px-8 py-5'>
+      <div className='w-9/12 h-10/12 rounded-xl bg-white dark:bg-gray-600 relative px-8 py-5'>
         <div className='absolute -top-4 -left-20 rounded-lg shadow-xl w-[16rem] h-[23rem]'>
           <img
             src={`${comic.thumbnail?.path}/detail.${comic?.thumbnail?.extension}`}
@@ -32,10 +32,10 @@ export const DetailsModal = ({ comic, closeModal }: any) => {
         <div className='w-full flex flex-col'>
           <div className='flex flex-col w-10/12 self-end '>
             <div className='h-[14rem] min-h-fit'>
-              <h1 className='font-semibold text-3xl text-center uppercase'>
+              <h1 className='font-semibold text-3xl text-center uppercase dark:text-white'>
                 {comic?.title}
               </h1>
-              <div className='max-h-[11rem] overflow-auto py-3 text-sm'>
+              <div className='max-h-[11rem] overflow-auto py-3 text-sm dark:text-white'>
                 <p
                   dangerouslySetInnerHTML={{
                     __html: comic?.description || 'Descrição não informada'
@@ -43,7 +43,7 @@ export const DetailsModal = ({ comic, closeModal }: any) => {
                   className='beforeBar italic'
                 />
               </div>
-              <p className='flex items-center text-red-600 font-semibold py-2 text-sm'>
+              <p className='flex items-center text-red-600 font-semibold py-2 text-sm dark:text-gray-900'>
                 <BiMessageAltDetail size={20} />
                 <span>
                   <a
@@ -58,7 +58,7 @@ export const DetailsModal = ({ comic, closeModal }: any) => {
                 </span>
               </p>
             </div>
-            <div className=' mt-5 leading-8 max-h-[26rem] overflow-auto'>
+            <div className=' mt-5 leading-8 max-h-[26rem] overflow-auto dark:text-white'>
               <div>
                 <span className='topics'>Série a que faz parte: </span>
                 <span>{comic?.series?.name || 'Não disponível'}</span>
@@ -95,7 +95,7 @@ export const DetailsModal = ({ comic, closeModal }: any) => {
               </div>
             </div>
           </div>
-          <div className='min-h-[9rem] pt-4'>
+          <div className='min-h-[9rem] pt-4 dark:text-white'>
             {isValidating ? (
               'Loading component'
             ) : (
@@ -130,7 +130,7 @@ export const DetailsModal = ({ comic, closeModal }: any) => {
 
         <Button
           onClick={closeModal}
-          className='absolute -top-7 -right-7 w-16 h-16 rounded-full bg-red-600 flex items-center justify-center '
+          className='absolute -top-7 -right-7 w-16 h-16 rounded-full mainColor flex items-center justify-center dark:darkMainColor '
         >
           <RiCloseCircleLine size={60} className='text-white' />
         </Button>

@@ -8,7 +8,7 @@
   }
 
   .beforeBar {
-    @apply before:content-[''] before:inline-block before:w-1 before:mr-1 before:h-4 before:bg-red-600
+    @apply before:content-[''] before:inline-block before:w-1 before:mr-1 before:h-4 before:mainColor dark:before:darkMainColor
   }
 
   .topics {
@@ -17,6 +17,14 @@
 
   .dark-mode {
     @apply right-0 border-none bg-gray-600 bg-[url('./assets/toggle.svg')]
+  }
+
+  .mainColor {
+    @apply bg-red-600
+  }
+
+  .darkMainColor {
+    @apply bg-gray-900
   }
 }
 
