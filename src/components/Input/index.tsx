@@ -28,7 +28,7 @@ export const Input = ({
   return (
     <div className='flex flex-col w-full'>
       <div
-        className={`flex items-center w-full border-2 border-gray-300 bg-white rounded-md py-1 px-4 shadow-md ${className}`}
+        className={`flex items-center w-full border-2 border-gray-300 dark:border-none bg-white rounded-md py-1 px-4 shadow-md ${className}`}
       >
         {Icon && <Icon size={26} className='text-gray-400' />}
         <input

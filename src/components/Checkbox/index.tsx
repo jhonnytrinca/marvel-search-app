@@ -32,7 +32,7 @@ export const Checkbox = ({
       <span className={`relative z-[2] text-white text-sm`}>
         {handleLabel()}
       </span>
-      <div className='absolute inset-0 bg-blue-500 peer-checked:bg-red-500 rounded-full' />
+      <div className='absolute inset-0 bg-blue-500 peer-checked:bg-red-500 rounded-full dark:bg-blue-800' />
     </label>
   );
 };

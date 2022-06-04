@@ -7,7 +7,7 @@ export const Header = () => {
   const { setTheme } = useDarkMode();
 
   return (
-    <div className='flex justify-center bg-red-600  w-full h-28'>
+    <div className='flex justify-center bg-red-600  w-full h-28 dark:bg-gray-900'>
       <div className='flex container w-10/12 justify-between items-center h-full'>
         <img
           src={MarvelLogo}
