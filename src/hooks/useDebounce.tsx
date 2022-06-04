@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 
 const useDebounce = (
-  callback: (e: any) => void,
+  callback: (e: string) => void,
   delay: number
 ): ((value: string) => void) => {
   const ref = useRef<number | undefined>(0);

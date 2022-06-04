@@ -2,7 +2,30 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { Button } from '../Button';
 import { Checkbox } from '../Checkbox';
 
-export const Card = ({ comic, handleDetails, onChange, formik }: any) => {
+/** Componente Card
+ *
+ * @param {Object} comic - quadrinho a ser exibido
+ * @param {Function} handleDetails - função de abertura do modal de detalhes
+ * @param {Function} onChange - função de ação de mudança no checkbox
+ * @param {Object} formik - propriedades e funções do Formik
+ *
+ */
+
+type cardProps = {
+  comic: {
+    thumbnail: {
+      path: string;
+      extension: string;
+    };
+    title: string;
+    id: number;
+  };
+  handleDetails: () => void;
+  onChange: (e?: MouseEvent) => void;
+  formik: any;
+};
+
+export const Card = ({ comic, handleDetails, onChange, formik }: cardProps) => {
   return (
     <>
       <div className='rounded-xl w-60 h-fit flex flex-col gap-3 relative hover:opacity-[0.9] hover:transition-opacity shadow-xl hover:scale-105	bg-white dark:bg-gray-600'>

@@ -4,6 +4,36 @@ import useSWR from 'swr';
 import ComicsService from '../services/ComicsService';
 import useDebounce from './useDebounce';
 
+type comicProps = {
+  title?: string;
+  creators?: {
+    items: [
+      {
+        name: string;
+        role: string;
+      }
+    ];
+  };
+  dates?: [
+    {
+      type: string;
+      date: string;
+    }
+  ];
+  prices?: [
+    {
+      type: string;
+      price: number;
+    }
+  ];
+  urls?: [
+    {
+      type: string;
+      url: string;
+    }
+  ];
+};
+
 const useMarvelComics = () => {
   const [value, setValue] = useState<string>('');
   const [searchTitle, setSearchTitle] = useState<string>();
@@ -31,7 +61,7 @@ const useMarvelComics = () => {
     setSearchTitle('');
   };
 
-  const handleDetails = (comic: any) => {
+  const handleDetails = (comic: comicProps) => {
     setComicDetails(comic);
     setOpenModal(true);
   };

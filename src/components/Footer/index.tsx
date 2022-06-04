@@ -2,7 +2,13 @@ import { Button } from '../Button';
 import { Input } from '../Input';
 import { MdEmail, MdPerson } from 'react-icons/md';
 
-export const Footer = ({ formik, handleSubmit }: any) => {
+/** Componente Footer
+ *
+ * @param {Object} formik - propriedades e funções do Formik
+ *
+ */
+
+export const Footer = ({ formik }: any) => {
   return (
     <div className='relative flex justify-center mainColor w-full h-44 dark:darkMainColor'>
       <div className='absolute container -top-20 w-3/5'>

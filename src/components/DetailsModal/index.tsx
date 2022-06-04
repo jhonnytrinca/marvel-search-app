@@ -5,8 +5,66 @@ import ComicsService from '../../services/ComicsService';
 import { Button } from '../Button';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { BiMessageAltDetail } from 'react-icons/bi';
+import { ReactElement, JSXElementConstructor, ReactFragment } from 'react';
 
-export const DetailsModal = ({ comic, closeModal }: any) => {
+/** Componente Checkbox
+ *
+ * @param {Object} comic - objeto contendo dados do quadrinho
+ * @param {Function} closeModal - função de ação de fechamento do modal
+ *
+ */
+
+type detailsProps = {
+  comic: {
+    characters?: {
+      collectionURI: string;
+    };
+    thumbnail?: {
+      path: string;
+      extension: string;
+    };
+    title?: string;
+    description?: string;
+    series?: {
+      name: string;
+    };
+    pageCount?: string;
+    creators?: {
+      items: [
+        {
+          name: string;
+          role: string;
+        }
+      ];
+    };
+    dates?: [
+      {
+        type: string;
+        date: string;
+      }
+    ];
+    prices?: [
+      {
+        type: string;
+        price: number;
+      }
+    ];
+    urls?: [
+      {
+        type: string;
+        url: string;
+      }
+    ];
+  };
+  closeModal: () => void;
+};
+
+type characterProps = {
+  thumbnail: { path: string };
+  name: string;
+};
+
+export const DetailsModal = ({ comic, closeModal }: detailsProps) => {
   const { handleDate, handlePrice, handleDetails, handleCreators, handleIcon } =
     useComicDetails(comic);
   const { data, isValidating } = useSWR(
@@ -16,8 +74,6 @@ export const DetailsModal = ({ comic, closeModal }: any) => {
   );
   const characters = data?.data?.data.results;
   useOnKeyDown('Escape', closeModal);
-
-  console.log(comic);
 
   return (
     <div className='fixed top-0 left-0 w-full h-screen z-10 flex justify-center items-center bg-black/40'>
@@ -76,7 +132,7 @@ export const DetailsModal = ({ comic, closeModal }: any) => {
                   <span className='topics'>Preço de lançamento: </span>
                   <span>{handlePrice()}</span>
                 </div>
-                {comic?.creators?.items.length > 0 && (
+                {comic.creators?.items && comic.creators?.items.length > 0 && (
                   <>
                     <div>
                       <span className='topics'>Escritores: </span>
@@ -106,7 +162,7 @@ export const DetailsModal = ({ comic, closeModal }: any) => {
                       Personagens participantes:
                     </span>
                     <div className='flex gap-4 overflow-x-auto mt-2'>
-                      {characters.map((character: any) => (
+                      {characters.map((character: characterProps) => (
                         <div className='flex flex-col flex-wrap gap-2 items-center mx-2 w-full mb-2'>
                           <div className='w-20 rounded-full'>
                             <img

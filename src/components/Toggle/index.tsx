@@ -1,5 +1,13 @@
+/** Componente Toggle
+ *
+ * @param {Function} onChange - função de ação de mudança no input
+ *
+ */
+
+import { ChangeEvent } from 'react';
+
 type toggleProps = {
-  onChange: (e: any) => void;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const Toggle = ({ onChange }: toggleProps) => {

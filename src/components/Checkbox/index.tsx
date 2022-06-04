@@ -1,3 +1,12 @@
+/** Componente Checkbox
+ *
+ * @param {boolean} checked - indicativo se checkbox está marcado
+ * @param {string[]} label - array que indica label, item 0 indica label com checkbox vazio, item 1 checkbox marcado
+ * @param {Function} onChange - função de ação de mudança no checkbox
+ * @param {string} name - nome do campo
+ *
+ */
+
 type checkboxProps = {
   checked: boolean;
   label: string[];

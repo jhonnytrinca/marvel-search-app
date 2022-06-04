@@ -1,9 +1,25 @@
+import { ChangeEvent } from 'react';
 import { Button } from '../Button';
+
+/** Componente Checkbox
+ *
+ * @param {string} type - tipo do imput. Padrão 'text'
+ * @param {string} placeholder - texto de placeholder do input
+ * @param {Function} onChange - função de ação de mudança no input
+ * @param {File} image - icone a ser exibido dentro do input
+ * @param {string} value - indicativo de valor do input
+ * @param {Function} clearValue - função de ação para zerar o input
+ * @param {string} className - classes adicionais de estilização
+ * @param {boolean} error - boolean de indicativo de erro
+ * @param {string} helperText - string informativa exibida quando error for true
+ * @param {string} name - nome do campo
+ *
+ */
 
 type InputProps = {
   type?: string;
   placeholder: string;
-  onChange: (e: any) => void;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   icon?: any;
   value: string;
   clearValue?: () => void;
