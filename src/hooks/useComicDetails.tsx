@@ -1,4 +1,15 @@
 import moment from 'moment';
+import america from '../assets/hero-icons/america.png';
+import antman from '../assets/hero-icons/antman.png';
+import avengers from '../assets/hero-icons/avengers.png';
+import blackpanther from '../assets/hero-icons/blackpanther.png';
+import capmarvel from '../assets/hero-icons/capmarvel.png';
+import guardians from '../assets/hero-icons/guardians.png';
+import hulk from '../assets/hero-icons/hulk.png';
+import ironman from '../assets/hero-icons/ironman.png';
+import spiderman from '../assets/hero-icons/spiderman.png';
+import thor from '../assets/hero-icons/thor.png';
+import xmen from '../assets/hero-icons/xmen.png';
 
 const useComicDetails = (comic: any) => {
   const handleDate = () => {
@@ -38,8 +49,6 @@ const useComicDetails = (comic: any) => {
       (comic: any) => comic.role === 'penciller (cover)'
     );
 
-    console.log(covers);
-
     if (type === 'writers') {
       if (writers.length > 0) {
         return (
@@ -73,7 +82,36 @@ const useComicDetails = (comic: any) => {
     }
   };
 
-  return { handleDate, handlePrice, handleDetails, handleCreators };
+  const handleIcon = () => {
+    const filter = (hero: string) => comic.title?.toLowerCase().includes(hero);
+
+    switch (true) {
+      case filter('captain america'):
+        return <img src={america} alt='Icone Captão America' />;
+      case filter('ant-man'):
+        return <img src={antman} alt='Icone Homem Formiga' />;
+      case filter('avengers'):
+        return <img src={avengers} alt='Icone Vingadores' />;
+      case filter('panther'):
+        return <img src={blackpanther} alt='Icone Pantera Negra' />;
+      case filter('captain marvel'):
+        return <img src={capmarvel} alt='Icone Capitã Marvel' />;
+      case filter('guardians of the galaxy'):
+        return <img src={guardians} alt='Icone Guardiões da Galaxia' />;
+      case filter('hulk'):
+        return <img src={hulk} alt='Icone Hulk' />;
+      case filter('iron man'):
+        return <img src={ironman} alt='Icone Homem de Ferro' />;
+      case filter('spider'):
+        return <img src={spiderman} alt='Icone Homem Aranha' />;
+      case filter('thor'):
+        return <img src={thor} alt='Icone Thor' />;
+      case filter('x-men'):
+        return <img src={xmen} alt='Icone X-Men' />;
+    }
+  };
+
+  return { handleDate, handlePrice, handleDetails, handleCreators, handleIcon };
 };
 
 export default useComicDetails;

@@ -7,7 +7,7 @@ import { RiCloseCircleLine } from 'react-icons/ri';
 import { BiMessageAltDetail } from 'react-icons/bi';
 
 export const DetailsModal = ({ comic, closeModal }: any) => {
-  const { handleDate, handlePrice, handleDetails, handleCreators } =
+  const { handleDate, handlePrice, handleDetails, handleCreators, handleIcon } =
     useComicDetails(comic);
   const { data, isValidating } = useSWR(
     comic?.characters?.collectionURI,
@@ -29,8 +29,8 @@ export const DetailsModal = ({ comic, closeModal }: any) => {
             className='rounded-lg object-cover w-full h-full'
           />
         </div>
-        <div className='w-full flex flex-col'>
-          <div className='flex flex-col w-10/12 self-end '>
+        <div className='w-full flex flex-col '>
+          <div className='flex flex-col w-10/12 self-end z-[2]'>
             <div className='h-[14rem] min-h-fit'>
               <h1 className='font-semibold text-3xl text-center uppercase dark:text-white'>
                 {comic?.title}
@@ -134,6 +134,10 @@ export const DetailsModal = ({ comic, closeModal }: any) => {
         >
           <RiCloseCircleLine size={60} className='text-white' />
         </Button>
+
+        <div className='absolute top-4 right-6 w-60 rotate-[25deg] opacity-30'>
+          {handleIcon()}
+        </div>
       </div>
     </div>
   );
