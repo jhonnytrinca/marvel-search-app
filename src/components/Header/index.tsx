@@ -8,7 +8,7 @@ export const Header = () => {
 
   return (
     <div className='flex justify-center bg-red-600  w-full h-28'>
-      <div className='flex container justify-between items-center h-full'>
+      <div className='flex container w-10/12 justify-between items-center h-full'>
         <img
           src={MarvelLogo}
           alt='Logo da Marvel'

@@ -18,9 +18,9 @@ const Home = () => {
   return (
     <>
       <Header />
-      <>
+      <div className='bg-gray-100 pb-16'>
         <div className='flex justify-center items-center w-full py-8 relative'>
-          <div className='w-3/5'>
+          <div className='w-3/6'>
             <Input
               placeholder='Busque pelo nome do quadrinho desejado'
               onChange={(e) => {
@@ -32,13 +32,13 @@ const Home = () => {
             />
           </div>
         </div>
-        <div className='flex p-8 justify-center'>
+        <div className='flex p-8 justify-center overflow-auto'>
           {isValidating ? (
             'Loading Component'
           ) : (
             <>
               {comics?.length > 0 ? (
-                <div className='grid grid-cols-4 gap-x-6 gap-y-12 w-full justify-items-center container'>
+                <div className='grid grid-cols-5 gap-10 justify-items-center w-10/12'>
                   {comics?.map((comic: any) => (
                     <Card
                       comic={comic}
@@ -60,7 +60,7 @@ const Home = () => {
             />
           )}
         </div>
-      </>
+      </div>
       <Footer />
     </>
   );

@@ -5,14 +5,14 @@ import { Checkbox } from '../Checkbox';
 export const Card = ({ comic, handleDetails }: any) => {
   return (
     <>
-      <div className='border-2 rounded-xl w-64 h-fit flex flex-col gap-3 relative hover:opacity-[0.9] hover:transition-opacity'>
+      <div className='rounded-xl w-56 h-fit flex flex-col gap-3 relative hover:opacity-[0.9] hover:transition-opacity shadow-xl'>
         <img
           src={`${comic?.thumbnail?.path}/standard_fantastic.${comic?.thumbnail?.extension}`}
           alt='Capa do quadrinho'
           className='rounded-t-xl'
         />
 
-        <span className='text-xl font-semibold text-center truncate px-2'>
+        <span className='text-xl font-semibold text-center truncate px-2 uppercase'>
           {comic?.title || ''}
         </span>
 

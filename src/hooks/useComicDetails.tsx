@@ -41,32 +41,35 @@ const useComicDetails = (comic: any) => {
     console.log(covers);
 
     if (type === 'writers') {
-      return (
-        <span>
-          {writers.length > 0 &&
-            `${writers[0].name}${
-              writers.length > 1 ? ` + ${writers.length - 1}` : ''
-            };`}
-        </span>
-      );
+      if (writers.length > 0) {
+        return (
+          <span>
+            {writers[0].name}
+            {writers.length > 1 ? ` + ${writers.length - 1}` : ''}
+          </span>
+        );
+      }
+      return 'Não disponível.';
     } else if (type === 'pencillers') {
-      return (
-        <span>
-          {pencillers.length > 0 &&
-            `${pencillers[0].name}${
-              pencillers.length > 1 ? ` + ${pencillers.length - 1}` : ''
-            };`}
-        </span>
-      );
+      if (pencillers.length > 0) {
+        return (
+          <span>
+            {pencillers[0].name}
+            {pencillers.length > 1 ? ` + ${pencillers.length - 1}` : ''}
+          </span>
+        );
+      }
+      return 'Não disponível.';
     } else if (type === 'covers') {
-      return (
-        <span>
-          {covers.length > 0 &&
-            `${covers[0].name}${
-              covers.length > 1 ? `+ ${covers.length - 1}` : ''
-            };`}
-        </span>
-      );
+      if (covers.length > 0) {
+        return (
+          <span>
+            {covers[0].name}
+            {covers.length > 1 ? `+ ${covers.length - 1}` : ''}
+          </span>
+        );
+      }
+      return 'Não disponível.';
     }
   };
 

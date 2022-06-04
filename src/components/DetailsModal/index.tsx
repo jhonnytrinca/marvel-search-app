@@ -11,7 +11,8 @@ export const DetailsModal = ({ comic, closeModal }: any) => {
     useComicDetails(comic);
   const { data, isValidating } = useSWR(
     comic?.characters?.collectionURI,
-    ComicsService.getCharacters
+    ComicsService.getCharacters,
+    { revalidateOnFocus: false, revalidateIfStale: false }
   );
   const characters = data?.data?.data.results;
   useOnKeyDown('Escape', closeModal);
@@ -20,8 +21,8 @@ export const DetailsModal = ({ comic, closeModal }: any) => {
 
   return (
     <div className='fixed top-0 left-0 w-full h-screen z-10 flex justify-center items-center bg-black/40'>
-      <div className='w-4/5 h-10/12 rounded-xl bg-white relative px-8 py-3'>
-        <div className='absolute -top-4 -left-20 rounded-lg shadow-lg w-[16rem] h-[23rem]'>
+      <div className='w-9/12 h-10/12 rounded-xl bg-white relative px-8 py-5'>
+        <div className='absolute -top-4 -left-20 rounded-lg shadow-xl w-[16rem] h-[23rem]'>
           <img
             src={`${comic.thumbnail?.path}/detail.${comic?.thumbnail?.extension}`}
             alt={comic.title}
@@ -94,17 +95,19 @@ export const DetailsModal = ({ comic, closeModal }: any) => {
               </div>
             </div>
           </div>
-          <div className='min-h-[9rem]'>
+          <div className='min-h-[9rem] pt-4'>
             {isValidating ? (
               'Loading component'
             ) : (
               <>
                 {characters?.length > 0 && (
                   <div className='mt-2'>
-                    <span className='topics'>Personagens participantes:</span>
+                    <span className='topics text-xl'>
+                      Personagens participantes:
+                    </span>
                     <div className='flex gap-4 overflow-x-auto mt-2'>
                       {characters.map((character: any) => (
-                        <div className='flex flex-col flex-wrap gap-2 items-center mx-2 w-full'>
+                        <div className='flex flex-col flex-wrap gap-2 items-center mx-2 w-full mb-2'>
                           <div className='w-20 rounded-full'>
                             <img
                               src={`${character.thumbnail?.path}/standard_fantastic.${comic?.thumbnail?.extension}`}
