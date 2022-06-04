@@ -35,13 +35,13 @@ export const Checkbox = ({
         checked={checked}
         onChange={onChange}
         name={name}
-        className='hidden checked:block checked:animate-shake h-4 w-4 border-none text-red-500 peer z-[2]'
+        className='md:hidden checked:block checked:animate-shake h-5 w-5 md:h-4 md:w-4  border-none rounded-sm text-red-500 peer z-[2]'
         {...rest}
       />
-      <span className={`relative z-[2] text-white text-sm`}>
+      <span className={`hidden md:block relative z-[2] text-white text-sm`}>
         {handleLabel()}
       </span>
-      <div className='absolute inset-0 bg-blue-500 peer-checked:bg-red-500 rounded-full dark:bg-blue-800' />
+      <div className='hidden md:block absolute inset-0 bg-blue-500 peer-checked:bg-red-500 rounded-full dark:bg-blue-800' />
     </label>
   );
 };

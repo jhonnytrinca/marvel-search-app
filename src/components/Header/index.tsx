@@ -7,17 +7,17 @@ export const Header = () => {
   const { setTheme } = useDarkMode();
 
   return (
-    <div className='flex justify-center mainColor  w-full h-28 dark:darkMainColor'>
+    <div className='flex justify-center mainColor w-full h-16 md:h-28 dark:darkMainColor'>
       <div className='flex container w-10/12 justify-between items-center h-full'>
         <img
           src={MarvelLogo}
           alt='Logo da Marvel'
-          className='dark:hidden w-48'
+          className='dark:hidden w-28 md:w-48'
         />
         <img
           src={MarvelLogoDark}
           alt='Logo da Marvel'
-          className='hidden dark:block w-48'
+          className='hidden dark:block w-28 md:w-48'
         />
         <Toggle
           onChange={(e) => {

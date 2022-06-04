@@ -10,12 +10,12 @@ import { MdEmail, MdPerson } from 'react-icons/md';
 
 export const Footer = ({ formik }: any) => {
   return (
-    <div className='relative flex justify-center mainColor w-full h-[10.5rem] dark:darkMainColor font-montserrat'>
-      <div className='absolute container -top-20 w-3/5'>
-        <h1 className='text-center pb-6 text-2xl font-semibold dark:text-white'>
+    <div className='relative flex justify-center mainColor w-full md:h-[8.2rem] dark:darkMainColor font-montserrat py-4'>
+      <div className='md:absolute container md:-top-20 w-5/6 md:w-3/5'>
+        <h1 className='text-center pb-6 text-lg md:text-2xl font-semibold dark:text-white'>
           Envie por email os quadrinhos selecionados:
         </h1>
-        <div className='flex gap-4 '>
+        <div className='flex flex-col md:flex-row gap-4 '>
           <Input
             placeholder='Informe seu nome'
             name='name'
@@ -48,7 +48,7 @@ export const Footer = ({ formik }: any) => {
             Enviar
           </Button>
         </div>
-        <div className='text-center p-10'>
+        <div className='text-center p-4 md:p-10'>
           <a
             href='http://marvel.com'
             target='_blank'

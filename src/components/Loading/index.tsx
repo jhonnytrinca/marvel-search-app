@@ -32,9 +32,11 @@ export const Loading = () => {
       <img
         src={icons[random]}
         alt='Carregando'
-        className='w-40 animate-spin opacity-90'
+        className='w-28 md:w-40 animate-spin opacity-90'
       />
-      <p className='text-2xl font-semibold pt-'>Carregando...</p>
+      <p className='text-2xl font-semibold pt-2 dark:text-white'>
+        Carregando...
+      </p>
     </div>
   );
 };
