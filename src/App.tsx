@@ -1,6 +1,6 @@
 import { Toast } from './components';
 import useDarkMode from './hooks/useDarkMode';
-import Home from './pages';
+import Home from './pages/Home';
 
 function App() {
   useDarkMode();

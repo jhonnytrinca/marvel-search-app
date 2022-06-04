@@ -7,10 +7,10 @@ type InputProps = {
   icon?: any;
   value: string;
   clearValue?: () => void;
-  label?: string;
   className?: string;
   error?: boolean;
   helperText?: string;
+  name?: string;
 };
 
 export const Input = ({
@@ -19,19 +19,16 @@ export const Input = ({
   onChange,
   icon: Icon,
   value,
-  label,
   className,
   clearValue,
   error,
+  name,
   helperText
 }: InputProps) => {
   return (
     <div className='flex flex-col w-full'>
-      {label && (
-        <label className='pb-2 px-2 text-gray-600 font-semibold'>{label}</label>
-      )}
       <div
-        className={`flex items-center w-full border-2 border-gray-300 bg-white rounded-md p-2 shadow-md ${className}`}
+        className={`flex items-center w-full border-2 border-gray-300 bg-white rounded-md py-1 px-4 shadow-md ${className}`}
       >
         {Icon && <Icon size={26} className='text-gray-400' />}
         <input
@@ -39,6 +36,7 @@ export const Input = ({
           placeholder={placeholder}
           value={value}
           onChange={onChange}
+          name={name}
           className='w-full pl-2'
         />
         {!!clearValue && (
@@ -50,9 +48,7 @@ export const Input = ({
           </Button>
         )}
       </div>
-      {error && (
-        <span className='text-white p-2 text-md text-lg'>{helperText}</span>
-      )}
+      {error && <span className='text-white p-2 text-md'>{helperText}</span>}
     </div>
   );
 };
