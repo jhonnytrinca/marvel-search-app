@@ -9,3 +9,4 @@ export { DetailsModal } from './DetailsModal';
 export { Loading } from './Loading';
 export { EmailTemplate } from './EmailTemplate';
 export { Toggle } from './Toggle';
+export { Pagination } from './Pagination';

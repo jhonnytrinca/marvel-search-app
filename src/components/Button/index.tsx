@@ -7,6 +7,7 @@ import { ReactNode } from 'react';
  * @param {string} className - classes adicionais de estilização
  * @param {string} type - indicador de tipo do botão. Padrão: 'button'
  * @param {string} dataCy - nome do campo para localização em testes
+ * @param {boolean} disabled - boolean que informa se o botão está desativado ou não
  *
  */
 
@@ -16,6 +17,7 @@ type ButtonProps = {
   className?: string;
   type?: 'button' | 'submit';
   dataCy?: string;
+  disabled?: boolean;
 };
 
 export const Button = ({
@@ -24,12 +26,14 @@ export const Button = ({
   className,
   type,
   dataCy,
+  disabled,
   ...rest
 }: ButtonProps) => (
   <button
     onClick={onClick}
     className={className}
     type={type || 'button'}
+    disabled={disabled}
     {...rest}
     data-cy={dataCy || 'button'}
   >

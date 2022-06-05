@@ -1,10 +1,4 @@
 {
-  "extends": [
-    "react-hooks"
-  ],
-  "plugins": [
-    "react-hooks"
-  ],
   "globals": {
     "cy": true
   }

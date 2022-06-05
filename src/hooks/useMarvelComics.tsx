@@ -10,6 +10,7 @@ const useMarvelComics = () => {
   const [searchTitle, setSearchTitle] = useState<string>();
   const [filters, setFilters] = useState({});
   const [openModal, setOpenModal] = useState(false);
+  const [page, setPage] = useState<number>(0);
   const [comicDetails, setComicDetails] = useState<comicProps>({
     title: '',
     id: 0,
@@ -23,11 +24,12 @@ const useMarvelComics = () => {
   }, [searchTitle]);
 
   const getKeys = () => {
-    return [`/comics`, filters];
+    return [`/comics`, { ...filters, offset: page * 20 }];
   };
 
   const handleChange = (value: string) => {
     setValue(value);
+    setPage(0);
     debounced(value);
   };
 
@@ -48,10 +50,12 @@ const useMarvelComics = () => {
     revalidateIfStale: false
   });
   const comics = data?.data.data.results;
+  const totalComics = data?.data.total;
 
   return {
     isValidating,
     comics,
+    totalComics,
     value,
     searchTitle,
     setSearchTitle,
@@ -60,7 +64,9 @@ const useMarvelComics = () => {
     openModal,
     setOpenModal,
     comicDetails,
-    handleDetails
+    handleDetails,
+    page,
+    setPage
   };
 };
 

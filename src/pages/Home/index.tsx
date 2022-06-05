@@ -4,7 +4,8 @@ import {
   Footer,
   Header,
   Input,
-  Loading
+  Loading,
+  Pagination
 } from '../../components';
 import { AiOutlineSearch } from 'react-icons/ai';
 import useMarvelComics from '../../hooks/useMarvelComics';
@@ -36,8 +37,13 @@ const Home = () => {
     openModal,
     setOpenModal,
     comicDetails,
-    handleDetails
+    handleDetails,
+    totalComics,
+    page,
+    setPage
   } = useMarvelComics();
+
+  console.log(page);
 
   return (
     <Formik
@@ -70,38 +76,49 @@ const Home = () => {
                 {isValidating ? (
                   <Loading />
                 ) : (
-                  <FieldArray
-                    name='selectedOptions'
-                    render={(arrayHelpers) => (
-                      <>
-                        {comics?.length > 0 ? (
-                          <div className='grid grid-cols-2 md:grid-cols-5 gap-5 md:gap-10  w-11/12'>
-                            {comics?.map((comic: comicProps) => (
-                              <Card
-                                comic={comic}
-                                key={comic.id}
-                                formik={props}
-                                handleDetails={() => handleDetails(comic)}
-                                onChange={(e: any) => {
-                                  if (e.target.checked)
-                                    arrayHelpers.push(comic);
-                                  else {
-                                    const index =
-                                      props.values.selectedOptions.indexOf(
-                                        comic.id!.toString()
-                                      );
-                                    arrayHelpers.remove(index);
-                                  }
-                                }}
-                              />
-                            ))}
-                          </div>
-                        ) : (
-                          'Nenhum informado'
-                        )}
-                      </>
-                    )}
-                  ></FieldArray>
+                  <div className='flex flex-col gap-4'>
+                    <FieldArray
+                      name='selectedOptions'
+                      render={(arrayHelpers) => (
+                        <>
+                          {comics?.length > 0 ? (
+                            <div className='grid grid-cols-2 md:grid-cols-5 gap-5 md:gap-10  w-11/12'>
+                              {comics?.map((comic: comicProps) => (
+                                <Card
+                                  comic={comic}
+                                  key={comic.id}
+                                  formik={props}
+                                  handleDetails={() => handleDetails(comic)}
+                                  onChange={(e: any) => {
+                                    if (e.target.checked)
+                                      arrayHelpers.push(comic);
+                                    else {
+                                      const index =
+                                        props.values.selectedOptions.indexOf(
+                                          comic.id!.toString()
+                                        );
+                                      arrayHelpers.remove(index);
+                                    }
+                                  }}
+                                />
+                              ))}
+                            </div>
+                          ) : (
+                            'Nenhum informado'
+                          )}
+                        </>
+                      )}
+                    ></FieldArray>
+
+                    <div className='flex px-6 pt-4 md:pt-8 justify-center'>
+                      <Pagination
+                        count={totalComics}
+                        page={page}
+                        setPage={setPage}
+                        perPage={20}
+                      />
+                    </div>
+                  </div>
                 )}
 
                 {openModal && (
