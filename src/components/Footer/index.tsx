@@ -45,6 +45,7 @@ export const Footer = ({ formik }: any) => {
           <Button
             type='submit'
             className='px-12 h-[3.25rem] rounded-md text-lg text-white text-center bg-blue-500 dark:bg-blue-800'
+            dataCy='sendEmail'
           >
             Enviar
           </Button>

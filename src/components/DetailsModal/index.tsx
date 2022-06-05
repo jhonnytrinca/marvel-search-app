@@ -152,6 +152,7 @@ export const DetailsModal = ({ comic, closeModal }: detailsProps) => {
         <Button
           onClick={closeModal}
           className='absolute top-1 md:-top-7 right-1 md:-right-7 w-10 h-10 md:w-16 md:h-16 rounded-full mainColor flex items-center justify-center dark:darkMainColor '
+          dataCy='closeModal'
         >
           <RiCloseCircleLine size={60} className='text-white' />
         </Button>

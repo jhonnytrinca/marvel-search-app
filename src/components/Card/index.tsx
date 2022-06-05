@@ -51,6 +51,7 @@ export const Card = ({ comic, handleDetails, onChange, formik }: cardProps) => {
           <Button
             onClick={handleDetails}
             className='flex gap-1 items-center underline text-gray-600 dark:text-white font-poppins'
+            dataCy='comicDetails'
           >
             <AiOutlineSearch />
             Detalhes

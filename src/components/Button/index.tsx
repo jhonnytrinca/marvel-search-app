@@ -6,6 +6,7 @@ import { ReactNode } from 'react';
  * @param {Function} onClick - função de retorno ao clicar no botão
  * @param {string} className - classes adicionais de estilização
  * @param {string} type - indicador de tipo do botão. Padrão: 'button'
+ * @param {string} dataCy - nome do campo para localização em testes
  *
  */
 
@@ -14,6 +15,7 @@ type ButtonProps = {
   onClick?: () => void;
   className?: string;
   type?: 'button' | 'submit';
+  dataCy?: string;
 };
 
 export const Button = ({
@@ -21,6 +23,7 @@ export const Button = ({
   onClick,
   className,
   type,
+  dataCy,
   ...rest
 }: ButtonProps) => (
   <button
@@ -28,6 +31,7 @@ export const Button = ({
     className={className}
     type={type || 'button'}
     {...rest}
+    data-cy={dataCy || 'button'}
   >
     {children}
   </button>
