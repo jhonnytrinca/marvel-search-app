@@ -80,42 +80,48 @@ const Home = () => {
                       render={(arrayHelpers) => (
                         <>
                           {comics?.length > 0 ? (
-                            <div className='grid grid-cols-2 md:grid-cols-5 gap-5 md:gap-10  w-11/12'>
-                              {comics?.map((comic: comicProps) => (
-                                <Card
-                                  comic={comic}
-                                  key={comic.id}
-                                  formik={props}
-                                  handleDetails={() => handleDetails(comic)}
-                                  onChange={(e: any) => {
-                                    if (e.target.checked)
-                                      arrayHelpers.push(comic);
-                                    else {
-                                      const index =
-                                        props.values.selectedOptions.indexOf(
-                                          comic.id!.toString()
-                                        );
-                                      arrayHelpers.remove(index);
-                                    }
-                                  }}
+                            <>
+                              <div className='grid grid-cols-2 md:grid-cols-5 gap-5 md:gap-10  w-11/12'>
+                                {comics?.map((comic: comicProps) => (
+                                  <Card
+                                    comic={comic}
+                                    key={comic.id}
+                                    formik={props}
+                                    handleDetails={() => handleDetails(comic)}
+                                    onChange={(e: any) => {
+                                      if (e.target.checked)
+                                        arrayHelpers.push(comic);
+                                      else {
+                                        const index =
+                                          props.values.selectedOptions.indexOf(
+                                            comic.id!.toString()
+                                          );
+                                        arrayHelpers.remove(index);
+                                      }
+                                    }}
+                                  />
+                                ))}
+                              </div>
+                              <div className='flex px-6 pt-4 md:pt-8 justify-center'>
+                                <Pagination
+                                  count={totalComics}
+                                  page={page}
+                                  setPage={setPage}
+                                  perPage={20}
                                 />
-                              ))}
-                            </div>
+                              </div>
+                            </>
                           ) : (
-                            'Nenhum informado'
+                            <div className='h-[8.6rem]'>
+                              <p className='text-2xl font-poppins dark:text-white'>
+                                Nenhum quadrinho foi encontrado, tente procurar
+                                por outro nome!
+                              </p>
+                            </div>
                           )}
                         </>
                       )}
                     ></FieldArray>
-
-                    <div className='flex px-6 pt-4 md:pt-8 justify-center'>
-                      <Pagination
-                        count={totalComics}
-                        page={page}
-                        setPage={setPage}
-                        perPage={20}
-                      />
-                    </div>
                   </div>
                 )}
 
