@@ -5,6 +5,7 @@ import ComicsService from '../../services/ComicsService';
 import { Button } from '../Button';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { BiMessageAltDetail } from 'react-icons/bi';
+import { comicProps } from '../../interface';
 
 /** Componente Checkbox
  *
@@ -14,47 +15,7 @@ import { BiMessageAltDetail } from 'react-icons/bi';
  */
 
 type detailsProps = {
-  comic: {
-    characters?: {
-      collectionURI: string;
-    };
-    thumbnail?: {
-      path: string;
-      extension: string;
-    };
-    title?: string;
-    description?: string;
-    series?: {
-      name: string;
-    };
-    pageCount?: string;
-    creators?: {
-      items: [
-        {
-          name: string;
-          role: string;
-        }
-      ];
-    };
-    dates?: [
-      {
-        type: string;
-        date: string;
-      }
-    ];
-    prices?: [
-      {
-        type: string;
-        price: number;
-      }
-    ];
-    urls?: [
-      {
-        type: string;
-        url: string;
-      }
-    ];
-  };
+  comic: comicProps;
   closeModal: () => void;
 };
 

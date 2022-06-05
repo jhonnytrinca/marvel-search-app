@@ -1,6 +1,7 @@
 import { Button } from '../Button';
 import { Input } from '../Input';
 import { MdEmail, MdPerson } from 'react-icons/md';
+import { FormikProps } from 'formik';
 
 /** Componente Footer
  *

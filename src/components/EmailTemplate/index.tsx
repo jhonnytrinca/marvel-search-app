@@ -1,6 +1,7 @@
 import useComicDetails from '../../hooks/useComicDetails';
+import { comicProps, valuesProps } from '../../interface';
 
-export const EmailTemplate = ({ values }: any) => {
+export const EmailTemplate = ({ values }: valuesProps) => {
   const {
     handleDate,
     handlePrice,
@@ -11,7 +12,7 @@ export const EmailTemplate = ({ values }: any) => {
 
   return (
     <>
-      {values.selectedOptions.map((comic: any) => (
+      {values.selectedOptions.map((comic: comicProps) => (
         <div key={comic.id}>
           <div>
             <img

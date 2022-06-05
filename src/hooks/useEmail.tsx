@@ -21,9 +21,9 @@ const useEmail = () => {
           process.env.REACT_APP_EMAILJS_PUBLIC_KEY
         )
         .then(
-          (result) => {
+          () => {
             toast.success('Email enviado com sucesso!');
-            // actions.resetForm();
+            actions.resetForm();
           },
           (error) => {
             toast.error('Ocorreu um erro, tente novamente.', error.text);

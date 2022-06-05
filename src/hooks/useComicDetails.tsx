@@ -10,40 +10,11 @@ import ironman from '../assets/hero-icons/ironman.png';
 import spiderman from '../assets/hero-icons/spiderman.png';
 import thor from '../assets/hero-icons/thor.png';
 import xmen from '../assets/hero-icons/xmen.png';
-
-type comicProps = {
-  title?: string;
-  creators?: {
-    items: [
-      {
-        name: string;
-        role: string;
-      }
-    ];
-  };
-  dates?: [
-    {
-      type: string;
-      date: string;
-    }
-  ];
-  prices?: [
-    {
-      type: string;
-      price: number;
-    }
-  ];
-  urls?: [
-    {
-      type: string;
-      url: string;
-    }
-  ];
-};
+import { comicProps } from '../interface';
 
 const useComicDetails = () => {
-  const handleDate = (comic: any) => {
-    const date = comic.dates?.find((comic: any) => comic.type === 'onsaleDate');
+  const handleDate = (comic: comicProps) => {
+    const date = comic.dates?.find((comic) => comic.type === 'onsaleDate');
 
     if (date) {
       return `${moment(date.date).format('DD/MM/YYYY')}`;
@@ -51,34 +22,32 @@ const useComicDetails = () => {
     return 'Não disponível';
   };
 
-  const handlePrice = (comic: any) => {
-    const price = comic.prices?.find(
-      (comic: any) => (comic.type = 'printPrice')
-    );
+  const handlePrice = (comic: comicProps) => {
+    const price = comic.prices?.find((comic) => (comic.type = 'printPrice'));
 
-    if (price && price.price > 0) {
+    if (price?.price && price.price > 0) {
       return `USD ${price.price}`;
     }
     return 'Não disponível';
   };
 
-  const handleDetails = (comic: any) => {
-    const detail = comic.urls?.find((comic: any) => comic.type === 'detail');
+  const handleDetails = (comic: comicProps) => {
+    const detail = comic.urls?.find((comic) => comic.type === 'detail');
 
     if (detail) {
       return detail.url;
     }
   };
 
-  const handleCreators = (type: string, comic: any) => {
+  const handleCreators = (type: string, comic: comicProps) => {
     const writers = comic.creators?.items?.filter(
-      (comic: any) => comic.role === 'writer'
+      (comic) => comic.role === 'writer'
     );
-    const pencillers = comic.creators?.items.filter(
-      (comic: any) => comic.role === 'penciller'
+    const pencillers = comic.creators?.items?.filter(
+      (comic) => comic.role === 'penciller'
     );
-    const covers = comic.creators?.items.filter(
-      (comic: any) => comic.role === 'penciller (cover)'
+    const covers = comic.creators?.items?.filter(
+      (comic) => comic.role === 'penciller (cover)'
     );
 
     if (type === 'writers') {
@@ -114,7 +83,7 @@ const useComicDetails = () => {
     }
   };
 
-  const handleIcon = (comic: any) => {
+  const handleIcon = (comic: comicProps) => {
     const filter = (hero: string) => comic.title?.toLowerCase().includes(hero);
 
     switch (true) {
@@ -143,11 +112,9 @@ const useComicDetails = () => {
     }
   };
 
-  const handleCharacters = (comic: any) => {
-    if (comic.characters.items.length > 0) {
-      return comic.characters?.items.map(
-        (character: any) => `${character.name}; `
-      );
+  const handleCharacters = (comic: comicProps) => {
+    if (comic.characters?.items && comic.characters?.items.length > 0) {
+      return comic.characters?.items?.map((character) => `${character.name}; `);
     }
     return 'Não disponível.';
   };

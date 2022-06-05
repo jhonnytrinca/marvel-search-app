@@ -11,6 +11,7 @@ import useMarvelComics from '../../hooks/useMarvelComics';
 import { FieldArray, Form, Formik } from 'formik';
 import { schemaDefault } from './validation';
 import useEmail from '../../hooks/useEmail';
+import { comicProps } from '../../interface';
 
 type initialValuesProps = {
   selectedOptions: string[];
@@ -75,7 +76,7 @@ const Home = () => {
                       <>
                         {comics?.length > 0 ? (
                           <div className='grid grid-cols-2 md:grid-cols-5 gap-5 md:gap-10  w-11/12'>
-                            {comics?.map((comic: any) => (
+                            {comics?.map((comic: comicProps) => (
                               <Card
                                 comic={comic}
                                 key={comic.id}
@@ -87,7 +88,7 @@ const Home = () => {
                                   else {
                                     const index =
                                       props.values.selectedOptions.indexOf(
-                                        comic.id
+                                        comic.id!.toString()
                                       );
                                     arrayHelpers.remove(index);
                                   }

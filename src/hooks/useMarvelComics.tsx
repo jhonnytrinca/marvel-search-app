@@ -1,45 +1,20 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import useSWR from 'swr';
+import { comicProps } from '../interface';
 import ComicsService from '../services/ComicsService';
 import useDebounce from './useDebounce';
-
-type comicProps = {
-  title?: string;
-  creators?: {
-    items: [
-      {
-        name: string;
-        role: string;
-      }
-    ];
-  };
-  dates?: [
-    {
-      type: string;
-      date: string;
-    }
-  ];
-  prices?: [
-    {
-      type: string;
-      price: number;
-    }
-  ];
-  urls?: [
-    {
-      type: string;
-      url: string;
-    }
-  ];
-};
 
 const useMarvelComics = () => {
   const [value, setValue] = useState<string>('');
   const [searchTitle, setSearchTitle] = useState<string>();
   const [filters, setFilters] = useState({});
   const [openModal, setOpenModal] = useState(false);
-  const [comicDetails, setComicDetails] = useState({});
+  const [comicDetails, setComicDetails] = useState<comicProps>({
+    title: '',
+    id: 0,
+    thumbnail: { path: '', extension: '' }
+  });
 
   useEffect(() => {
     !!searchTitle
