@@ -5,7 +5,7 @@ export type comicProps = {
   issueNumber?: string | number;
   variantDescription?: string;
   description?: string;
-  modified?: Date;
+  modified?: string;
   isbn?: string;
   upc?: string;
   diamondCode?: string;
@@ -13,7 +13,13 @@ export type comicProps = {
   issn?: string;
   format?: string;
   pageCount?: number;
-  textObjects?: string[];
+  textObjects?: [
+    {
+      type: string;
+      language: string;
+      text: string;
+    }
+  ];
   resourceURI?: string;
   urls?: [
     {

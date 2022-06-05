@@ -8,3 +8,4 @@ export { Footer } from './Footer';
 export { DetailsModal } from './DetailsModal';
 export { Loading } from './Loading';
 export { EmailTemplate } from './EmailTemplate';
+export { Toggle } from './Toggle';

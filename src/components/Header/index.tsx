@@ -16,7 +16,7 @@ export const Header = () => {
         />
         <img
           src={MarvelLogoDark}
-          alt='Logo da Marvel'
+          alt='Logo da Marvel - Dark Mode'
           className='hidden dark:block w-28 md:w-48'
         />
         <Toggle
