@@ -10,7 +10,7 @@ import { MdEmail, MdPerson } from 'react-icons/md';
 
 export const Footer = ({ formik }: any) => {
   return (
-    <div className='relative flex justify-center mainColor w-full md:h-[8.2rem] dark:darkMainColor font-montserrat py-4'>
+    <div className='relative flex justify-center mainColor w-full md:h-[11rem] dark:darkMainColor font-montserrat py-4'>
       <div className='md:absolute container md:-top-20 w-5/6 md:w-3/5'>
         <h1 className='text-center pb-6 text-lg md:text-2xl font-semibold dark:text-white'>
           Envie por email os quadrinhos selecionados:

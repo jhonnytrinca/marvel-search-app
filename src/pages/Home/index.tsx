@@ -10,6 +10,7 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import useMarvelComics from '../../hooks/useMarvelComics';
 import { FieldArray, Form, Formik } from 'formik';
 import { schemaDefault } from './validation';
+import useEmail from '../../hooks/useEmail';
 
 type initialValuesProps = {
   selectedOptions: string[];
@@ -24,6 +25,7 @@ const initialValues: initialValuesProps = {
 };
 
 const Home = () => {
+  const { handleEmail } = useEmail();
   const {
     isValidating,
     handleChange,
@@ -39,11 +41,8 @@ const Home = () => {
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={(values) => {
-        if (values.selectedOptions.length === 0) {
-          window.alert('É necessário selecionar ao menos um quadrinho!');
-        }
-        console.log(values);
+      onSubmit={(values, actions) => {
+        handleEmail(values, actions);
       }}
       validationSchema={schemaDefault}
     >
@@ -84,7 +83,7 @@ const Home = () => {
                                 handleDetails={() => handleDetails(comic)}
                                 onChange={(e: any) => {
                                   if (e.target.checked)
-                                    arrayHelpers.push(comic.id);
+                                    arrayHelpers.push(comic);
                                   else {
                                     const index =
                                       props.values.selectedOptions.indexOf(

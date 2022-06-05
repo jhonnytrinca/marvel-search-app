@@ -41,9 +41,9 @@ type comicProps = {
   ];
 };
 
-const useComicDetails = (comic: comicProps) => {
-  const handleDate = () => {
-    const date = comic.dates?.find((comic) => comic.type === 'onsaleDate');
+const useComicDetails = () => {
+  const handleDate = (comic: any) => {
+    const date = comic.dates?.find((comic: any) => comic.type === 'onsaleDate');
 
     if (date) {
       return `${moment(date.date).format('DD/MM/YYYY')}`;
@@ -51,8 +51,10 @@ const useComicDetails = (comic: comicProps) => {
     return 'Não disponível';
   };
 
-  const handlePrice = () => {
-    const price = comic.prices?.find((comic) => (comic.type = 'printPrice'));
+  const handlePrice = (comic: any) => {
+    const price = comic.prices?.find(
+      (comic: any) => (comic.type = 'printPrice')
+    );
 
     if (price && price.price > 0) {
       return `USD ${price.price}`;
@@ -60,23 +62,23 @@ const useComicDetails = (comic: comicProps) => {
     return 'Não disponível';
   };
 
-  const handleDetails = () => {
-    const detail = comic.urls?.find((comic) => comic.type === 'detail');
+  const handleDetails = (comic: any) => {
+    const detail = comic.urls?.find((comic: any) => comic.type === 'detail');
 
     if (detail) {
       return detail.url;
     }
   };
 
-  const handleCreators = (type: string) => {
+  const handleCreators = (type: string, comic: any) => {
     const writers = comic.creators?.items?.filter(
-      (comic) => comic.role === 'writer'
+      (comic: any) => comic.role === 'writer'
     );
     const pencillers = comic.creators?.items.filter(
-      (comic) => comic.role === 'penciller'
+      (comic: any) => comic.role === 'penciller'
     );
     const covers = comic.creators?.items.filter(
-      (comic) => comic.role === 'penciller (cover)'
+      (comic: any) => comic.role === 'penciller (cover)'
     );
 
     if (type === 'writers') {
@@ -112,7 +114,7 @@ const useComicDetails = (comic: comicProps) => {
     }
   };
 
-  const handleIcon = () => {
+  const handleIcon = (comic: any) => {
     const filter = (hero: string) => comic.title?.toLowerCase().includes(hero);
 
     switch (true) {
@@ -141,7 +143,23 @@ const useComicDetails = (comic: comicProps) => {
     }
   };
 
-  return { handleDate, handlePrice, handleDetails, handleCreators, handleIcon };
+  const handleCharacters = (comic: any) => {
+    if (comic.characters.items.length > 0) {
+      return comic.characters?.items.map(
+        (character: any) => `${character.name}; `
+      );
+    }
+    return 'Não disponível.';
+  };
+
+  return {
+    handleDate,
+    handlePrice,
+    handleDetails,
+    handleCreators,
+    handleIcon,
+    handleCharacters
+  };
 };
 
 export default useComicDetails;

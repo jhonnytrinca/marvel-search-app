@@ -65,7 +65,7 @@ type characterProps = {
 
 export const DetailsModal = ({ comic, closeModal }: detailsProps) => {
   const { handleDate, handlePrice, handleDetails, handleCreators, handleIcon } =
-    useComicDetails(comic);
+    useComicDetails();
   const { data, isValidating } = useSWR(
     comic?.characters?.collectionURI,
     ComicsService.getCharacters,
@@ -76,7 +76,7 @@ export const DetailsModal = ({ comic, closeModal }: detailsProps) => {
 
   return (
     <div className='fixed top-0 left-0 w-full h-screen z-10 flex md:justify-center md:items-center bg-black/40 '>
-      <div className='w-screen md:w-10/12 md:h-[90%] md:rounded-xl bg-white dark:bg-gray-600 relative my-6 md:m-0 px-4 py-2 md:px-8 md:py-5 flex flex-col overflow-y-auto md:overflow-y-visible'>
+      <div className='w-screen md:w-10/12 md:rounded-xl bg-white dark:bg-gray-600 relative my-6 md:m-0 px-4 py-2 md:px-8 md:py-5 flex flex-col overflow-y-auto md:overflow-y-visible'>
         <div className='md:absolute md:-top-4 md:-left-20 rounded-lg shadow-xl w-[16rem] h-[23rem] self-center my-4 md:m-0'>
           <img
             src={`${comic.thumbnail?.path}/detail.${comic?.thumbnail?.extension}`}
@@ -104,7 +104,7 @@ export const DetailsModal = ({ comic, closeModal }: detailsProps) => {
                   <a
                     target='_blank'
                     rel='noreferrer'
-                    href={handleDetails()}
+                    href={handleDetails(comic)}
                     className='underline pl-1 md:pl-2 font-montserrat'
                   >
                     Clique aqui
@@ -125,25 +125,25 @@ export const DetailsModal = ({ comic, closeModal }: detailsProps) => {
                 </div>
                 <div>
                   <span className='topics'>Data de lançamento: </span>
-                  <span>{handleDate()}</span>
+                  <span>{handleDate(comic)}</span>
                 </div>
                 <div>
                   <span className='topics'>Preço de lançamento: </span>
-                  <span>{handlePrice()}</span>
+                  <span>{handlePrice(comic)}</span>
                 </div>
                 {comic.creators?.items && comic.creators?.items.length > 0 && (
                   <>
                     <div>
                       <span className='topics'>Escritores: </span>
-                      <span>{handleCreators('writers')}</span>
+                      <span>{handleCreators('writers', comic)}</span>
                     </div>
                     <div>
                       <span className='topics'>Desenhistas: </span>
-                      <span>{handleCreators('pencillers')}</span>
+                      <span>{handleCreators('pencillers', comic)}</span>
                     </div>
                     <div>
                       <span className='topics'>Arte da capa: </span>
-                      <span>{handleCreators('covers')}</span>
+                      <span>{handleCreators('covers', comic)}</span>
                     </div>
                   </>
                 )}
@@ -196,7 +196,7 @@ export const DetailsModal = ({ comic, closeModal }: detailsProps) => {
         </Button>
 
         <div className='hidden md:block absolute top-4 right-6 w-60 rotate-[25deg] opacity-30'>
-          {handleIcon()}
+          {handleIcon(comic)}
         </div>
       </div>
     </div>

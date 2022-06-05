@@ -42,7 +42,7 @@ export const Card = ({ comic, handleDetails, onChange, formik }: cardProps) => {
         <div className='flex justify-between items-center pl-2 pr-4 md:px-3 mb-5'>
           <Checkbox
             checked={formik.values.selectedOptions?.some(
-              (item: number) => item === comic.id
+              (item: any) => item.id === comic.id
             )}
             label={['Selecionar', 'Selecionado']}
             onChange={onChange}
