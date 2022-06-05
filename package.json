@@ -31,7 +31,9 @@
     "cy:ct": "cypress open --component",
     "cy:run": "cypress run --component",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -59,7 +61,9 @@
     "@types/md5": "^2.3.2",
     "autoprefixer": "^10.4.7",
     "cypress": "^10.0.2",
+    "gh-pages": "^4.0.0",
     "postcss": "^8.4.14",
     "tailwindcss": "^3.0.24"
-  }
+  },
+  "homepage": "https://jhonnytrinca.github.io/marvel-search-app/"
 }

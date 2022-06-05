@@ -43,8 +43,6 @@ const Home = () => {
     setPage
   } = useMarvelComics();
 
-  console.log(page);
-
   return (
     <Formik
       initialValues={initialValues}
