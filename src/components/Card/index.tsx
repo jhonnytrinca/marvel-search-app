@@ -28,7 +28,7 @@ type cardProps = {
 export const Card = ({ comic, handleDetails, onChange, formik }: cardProps) => {
   return (
     <>
-      <div className='rounded-xl w-36 md:w-60 h-fit flex flex-col gap-3 relative hover:opacity-[0.9] hover:transition-opacity shadow-xl hover:scale-105	bg-white dark:bg-gray-600'>
+      <div className='rounded-xl w-40 md:w-60 h-fit flex flex-col gap-3 relative hover:opacity-[0.9] hover:transition-opacity shadow-xl hover:scale-105	bg-white dark:bg-gray-600'>
         <img
           src={`${comic?.thumbnail?.path}/standard_fantastic.${comic?.thumbnail?.extension}`}
           alt='Capa do quadrinho'
@@ -39,7 +39,7 @@ export const Card = ({ comic, handleDetails, onChange, formik }: cardProps) => {
           {comic?.title || ''}
         </span>
 
-        <div className='flex justify-between items-center px-2 md:px-3 mb-5'>
+        <div className='flex justify-between items-center pl-2 pr-4 md:px-3 mb-5'>
           <Checkbox
             checked={formik.values.selectedOptions?.some(
               (item: number) => item === comic.id

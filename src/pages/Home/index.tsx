@@ -66,7 +66,7 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className='flex p-4 md:p-8 justify-center overflow-auto'>
+              <div className='flex px-2 py-4 md:p-8 justify-center overflow-auto'>
                 {isValidating ? (
                   <Loading />
                 ) : (
@@ -75,7 +75,7 @@ const Home = () => {
                     render={(arrayHelpers) => (
                       <>
                         {comics?.length > 0 ? (
-                          <div className='grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-10 justify-items-center w-11/12'>
+                          <div className='grid grid-cols-2 md:grid-cols-5 gap-5 md:gap-10  w-11/12'>
                             {comics?.map((comic: any) => (
                               <Card
                                 comic={comic}

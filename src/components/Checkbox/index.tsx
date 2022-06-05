@@ -35,7 +35,7 @@ export const Checkbox = ({
         checked={checked}
         onChange={onChange}
         name={name}
-        className='md:hidden checked:block checked:animate-shake h-5 w-5 md:h-4 md:w-4  border-none rounded-sm text-red-500 peer z-[2]'
+        className='md:hidden checked:block checked:animate-shake h-6 w-6 md:h-4 md:w-4 rounded-md text-red-500 border-blue-500 bg-transparent focus:ring-offset-0 focus:ring-transparent border-2 peer z-[2]'
         {...rest}
       />
       <span className={`hidden md:block relative z-[2] text-white text-sm`}>

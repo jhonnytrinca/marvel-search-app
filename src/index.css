@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 @layer components {
-  input, [type='text'],  [type='checkbox'], [type='email'] {
+  [type='text'],  [type='email'] {
     @apply focus:ring-offset-0 focus:ring-transparent focus:outline-none border-none
   }
 

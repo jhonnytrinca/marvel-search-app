@@ -23,7 +23,12 @@ export const Button = ({
   type,
   ...rest
 }: ButtonProps) => (
-  <button onClick={onClick} className={className} type={type} {...rest}>
+  <button
+    onClick={onClick}
+    className={className}
+    type={type || 'button'}
+    {...rest}
+  >
     {children}
   </button>
 );
