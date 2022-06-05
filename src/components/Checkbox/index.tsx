@@ -29,7 +29,10 @@ export const Checkbox = ({
   };
 
   return (
-    <label className='flex items-center gap-1 relative py-1 px-2 w-fit cursor-pointer font-poppins'>
+    <label
+      className='flex items-center gap-1 relative py-1 px-2 w-fit cursor-pointer font-poppins'
+      data-cy='checkbox'
+    >
       <input
         type='checkbox'
         checked={checked}
