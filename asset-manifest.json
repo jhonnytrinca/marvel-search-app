@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/marvel-search-app/static/css/main.3beee3e2.css",
+    "main.js": "/marvel-search-app/static/js/main.a5dc316f.js",
+    "static/js/787.35b9280d.chunk.js": "/marvel-search-app/static/js/787.35b9280d.chunk.js",
+    "static/media/blackpanther.png": "/marvel-search-app/static/media/blackpanther.48788cb5b4b4b154fdcd.png",
+    "static/media/marvel-logo-pb.png": "/marvel-search-app/static/media/marvel-logo-pb.ad2f172e8fe8ae57ab8d.png",
+    "static/media/america.png": "/marvel-search-app/static/media/america.ad2834c9d7706c6350db.png",
+    "static/media/guardians.png": "/marvel-search-app/static/media/guardians.cc339322799cc844bd98.png",
+    "static/media/spiderman.png": "/marvel-search-app/static/media/spiderman.4cd9d15a12847f11a62a.png",
+    "static/media/avengers.png": "/marvel-search-app/static/media/avengers.d7a8319c0dbec94a6896.png",
+    "static/media/antman.png": "/marvel-search-app/static/media/antman.fd1d39b29b37ffc09703.png",
+    "static/media/ironman.png": "/marvel-search-app/static/media/ironman.91de88441b14bed7f61b.png",
+    "static/media/xmen.png": "/marvel-search-app/static/media/xmen.d3ff4c06d83189b74982.png",
+    "static/media/capmarvel.png": "/marvel-search-app/static/media/capmarvel.6379d8810f101faf6c05.png",
+    "static/media/hulk.png": "/marvel-search-app/static/media/hulk.5e5be5c0548de00a2102.png",
+    "static/media/marvel-logo.svg": "/marvel-search-app/static/media/marvel-logo.6a7fbd3f439966d4a35cd9ecca0bbd9e.svg",
+    "index.html": "/marvel-search-app/index.html",
+    "static/media/toggle.svg": "/marvel-search-app/static/media/toggle.adb435f07d388dad3590.svg",
+    "main.3beee3e2.css.map": "/marvel-search-app/static/css/main.3beee3e2.css.map",
+    "main.a5dc316f.js.map": "/marvel-search-app/static/js/main.a5dc316f.js.map",
+    "787.35b9280d.chunk.js.map": "/marvel-search-app/static/js/787.35b9280d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3beee3e2.css",
+    "static/js/main.a5dc316f.js"
+  ]
+}
