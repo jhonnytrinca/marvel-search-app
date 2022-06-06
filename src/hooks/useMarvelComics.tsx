@@ -50,7 +50,7 @@ const useMarvelComics = () => {
     revalidateIfStale: false
   });
   const comics = data?.data.data.results;
-  const totalComics = data?.data.total;
+  const totalComics = data?.data.data.total as number;
 
   return {
     isValidating,

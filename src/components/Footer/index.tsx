@@ -25,7 +25,7 @@ export const Footer = ({ formik }: any) => {
               formik.setFieldValue('name', e.target.value);
             }}
             value={formik.values.name}
-            className='!border-red-600 border-[3px]'
+            className='border-red-600 dark:border-white border-[3px]'
             error={!!(formik.errors.name && formik.touched.name)}
             helperText={formik.errors.name}
           />
@@ -40,7 +40,7 @@ export const Footer = ({ formik }: any) => {
             value={formik.values.email}
             error={!!(formik.errors.email && formik.touched.email)}
             helperText={formik.errors.email}
-            className='!border-red-600 border-[3px]'
+            className='border-red-600 dark:border-white border-[3px]'
           />
           <Button
             type='submit'

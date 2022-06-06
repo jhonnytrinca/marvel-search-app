@@ -58,6 +58,9 @@ const Home = () => {
             <div className='bg-gray-100 pb-4 md:pb-28 dark:bg-gray-700'>
               <div className='flex justify-center items-center w-full py-6 md:py-8 relative'>
                 <div className='w-5/6 md:w-3/6 font-montserrat'>
+                  <h1 className='text-center pb-2 md:text-2xl font-semibold font-montserrat dark:text-white'>
+                    Qual quadrinho deseja saber mais?
+                  </h1>
                   <Input
                     placeholder='Busque pelo nome do quadrinho desejado'
                     onChange={(e) => {
@@ -74,14 +77,14 @@ const Home = () => {
                 {isValidating ? (
                   <Loading />
                 ) : (
-                  <div className='flex flex-col gap-4'>
+                  <div className='flex flex-col'>
                     <FieldArray
                       name='selectedOptions'
                       render={(arrayHelpers) => (
                         <>
                           {comics?.length > 0 ? (
                             <>
-                              <div className='grid grid-cols-2 md:grid-cols-5 gap-5 md:gap-10  w-11/12'>
+                              <div className='grid grid-cols-2 md:grid-cols-5 gap-5 md:gap-10'>
                                 {comics?.map((comic: comicProps) => (
                                   <Card
                                     comic={comic}

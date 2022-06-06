@@ -20,7 +20,7 @@ export const Toggle = ({ onChange }: toggleProps) => {
         onChange={onChange}
         className='bg-yellow-300 border-yellow-500 mr-1 focus:ring-transparent absolute block w-6 h-6 rounded-full border-2 appearance-none cursor-pointer peer checked:dark-mode'
       />
-      <label className='toggle-label block h-8 -ml-1 -mt-1 rounded-full bg-blue-400 cursor-pointer peer-checked:bg-purple-500'></label>
+      <label className='toggle-label block h-8 -ml-1 -mt-1 rounded-full bg-blue-600 cursor-pointer peer-checked:bg-purple-500'></label>
     </div>
   );
 };

@@ -29,8 +29,13 @@ export const Pagination = ({
   setPage
 }: paginationProps) => {
   const total = Math.ceil(count / perPage);
-  const disabledPrevious = page == 0;
-  const disabledNext = page >= total;
+  const disabledPrevious = page === 0;
+  const disabledNext = page === total - 1;
+
+  console.log(total, 'total');
+  console.log(count, 'count');
+  console.log(perPage);
+  console.log(page);
 
   return (
     <div className='flex w-full md:w-1/2 self-center justify-between'>

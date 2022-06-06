@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { Button } from '../Button';
 import { Checkbox } from '../Checkbox';
@@ -26,18 +27,29 @@ type cardProps = {
 };
 
 export const Card = ({ comic, handleDetails, onChange, formik }: cardProps) => {
+  const [hover, setHover] = useState(false);
+
   return (
     <>
-      <div className='rounded-xl w-40 md:w-60 h-fit flex flex-col gap-3 relative hover:opacity-[0.9] hover:transition-opacity shadow-xl hover:scale-105	bg-white dark:bg-gray-600'>
+      <div
+        className='rounded-xl w-40 md:w-60 h-fit flex flex-col gap-3 relative hover:transition-opacity shadow-xl hover:scale-105	bg-white dark:bg-gray-600'
+        onMouseOver={() => setHover(true)}
+        onMouseOut={() => setHover(false)}
+      >
         <img
           src={`${comic?.thumbnail?.path}/standard_fantastic.${comic?.thumbnail?.extension}`}
           alt='Capa do quadrinho'
-          className='rounded-t-xl'
+          className='rounded-t-xl hover:opacity-[0.9]'
         />
-
-        <span className='text-sm md:text-xl font-semibold text-center truncate px-2 uppercase dark:text-white font-kdam'>
-          {comic?.title || ''}
-        </span>
+        <div className='overflow-hidden whitespace-nowrap text-center '>
+          <span
+            className={`text-sm md:text-xl font-semibold min-w-full px-2 uppercase dark:text-white font-kdam ${
+              hover && 'animateTitle'
+            }`}
+          >
+            {comic?.title || ''}
+          </span>
+        </div>
 
         <div className='flex justify-between items-center pl-2 pr-4 md:px-3 mb-5'>
           <Checkbox

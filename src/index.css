@@ -28,6 +28,10 @@
   .darkMainColor {
     @apply bg-gray-900
   }
+
+  .animateTitle {
+    @apply inline-block relative animate-title-animation
+  }
 }
 
 body {
